@@ -1,0 +1,115 @@
+/* ここから下に記載していく */
+@charset "utf-8";
+
+/* -----basic---------- */
+html{
+    font-size: 100%;
+    background-color:#f1e9d3
+}
+img{
+    max-width: 100%;
+    height: auto;
+}
+.body{
+    width: 1200px;
+    color: #6a6253;
+    font-family:"Open Sans",'ヒラギノ角ゴ ProN W3', Hiragino Kaku Gothic ProN, "メイリオ", Meiryo, sans-serif;
+    font-size: 16px;
+}
+input[type="text"],
+input[type="password"]
+testarea{
+    background-color: rgba(255,255,255,.5);
+    border: none;
+    border-bottom: 1px solid #6a6253;
+}
+.text_center{
+    text-align: center;
+}
+.index{
+    height: 500px;
+}
+.pd60px{
+    padding-top: 60px;
+}
+.pd40px{
+    padding-top: 40px;
+}
+.pd30px{
+    padding-top: 30px;
+}
+/* -----header--------*/
+.page-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 121px;
+    background-color: #707384;
+}
+.wrapper{
+    margin: 0 auto;
+}
+
+/* -----index--------*/
+.home-content{
+    margin: 100px 30px;
+}
+.kensaku{
+    text-align: center;
+}
+.kensaku-sub{
+    text-align: center;
+    margin-top: 5%;
+}
+
+/* ----button----- */
+.button{
+    font-size: 18px;
+    text-decoration: none;
+    background-color: #d7d0c6;
+    color: #6a6253;
+    padding: 20px;
+    border-radius: 5px;
+}
+.button:hover{
+    background-color: #e0b873;
+    color: #f1e9d3;
+}
+.buttoner{
+    font-size: 35px;
+    text-decoration: none;
+    background-color: #e0b873;
+    color: #6a6253;
+    padding: 30px;
+    border-radius: 5px;
+}
+.buttoner:hover{
+    background-color: #fead20;
+    color: #f1e9d3;
+}
+
+/* ------login--------- */
+.login {
+    padding: 30px;
+}
+
+/* ------form--------- */
+
+.home-content{
+    border: 1px solid #6a6253;
+    padding: 30px;
+}
+
+/* -------footer------------ */
+.footer{
+    width: 100%;
+    background-color: #707384;
+    height: 80px;
+    color: #f1e9d3;
+    text-align: center;
+    padding: 30px;
+}
+/* .p{
+    padding: 30px ;
+} */
