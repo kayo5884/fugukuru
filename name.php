@@ -1,5 +1,13 @@
-<?php 
+<?php
+session_start();
+
 //①データ取得ロジックを呼び出す
+require_once('funcs.php');
+$pdo = db_conn();
+
+$stmt = $pdo->prepare("SELECT * FROM welfare_table, img_table WHERE welfare_table.taiscode = img_table.taiscode");
+$status = $stmt->execute();
+
 include_once('name_act.php');
 $userData = getUserData($_GET);
 ?>
@@ -20,12 +28,12 @@ $userData = getUserData($_GET);
     </head>
     <body>
         <header class="page-header">
-                        <h1><a href="index.php"><img class="logo wrapper" src="images/logo_reg.png" alt="ふぐくる"></a></h1>
-                        <nav>
-                            <ul class="main-nav">
-                                <a class="button  wrapper" href="login.php">商品情報管理画面へ</a>
-                            </ul>
-                        </nav>
+            <h1><a href="index.php"><img class="logo wrapper" src="images/logo_reg.png" alt="ふぐくる"></a></h1>
+            <nav>
+                <ul class="main-nav">
+                    <a class="button  wrapper" href="login.php">商品情報管理画面へ</a>
+                </ul>
+            </nav>
         </header>
 
         <h2 class="col-xs-6 col-xs-offset-3">商品名から探す</h2>
@@ -81,17 +89,15 @@ $userData = getUserData($_GET);
                 <table class="table">
                     <thead>
                         <tr>
-                            <th>名前</th>
-                            <th>商品型番</th>
-                            <th>NCSコード</th>
+                        <th>画像</th>
+                        <th>名前</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php foreach($userData as $row): ?>
                             <tr>
-                                <td><?php echo htmlspecialchars($row['name']) ?></td>
-                                <td><?php echo htmlspecialchars($row['modelnumber']) ?></td>
-                                <td><?php echo htmlspecialchars($row['ncscode']) ?></td>
+                            <td><p><img src="upload/<?php if(!empty($row['img'])){echo htmlspecialchars($row['img']);}else{echo "20220417095746d5475826ee8491563f6a973e129d092f.jpeg";}?>" alt="商品画像"></p></td>
+                            <td><a href="sub.php?id=<?php echo(int) $row['id']?>"><?php echo htmlspecialchars($row['name']) ?></td>
                             </tr>
                         <?php endforeach; ?>
                     </tbody>

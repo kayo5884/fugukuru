@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <title>ふぐくる：画像登録</title>
+        <meta name="description" content="あいまい検索で福祉用具を見つける">
+        <link rel="icon" type="image/png" href="images/favicon_ncs.png">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- CSS -->
+            <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+            <link href="https://fonts.googleapis.com/css?family=Philosopher" rel="stylesheet">
+            <link href="css/style.css" rel="stylesheet">
+      </head>
+
+    <body>
+        <header class="page-header">
+            <nav class="navbar navbar-default">
+              <div class="container-fluid">
+              <div class="main"><a class="button wrapper" href="select.php">データ一覧に戻る</a></div>
+              </div>
+            </nav>
+        </header>
+        <form method="POST" action="fileupload.php" enctype="multipart/form-data">
+            <input type="file" name="upfile"><br>
+            TAISコード:<input type="text" name="taiscode"><br>
+            <input type="submit" class="button btn-success btn-sm" value="Fileアップロード">
+        </form>
+    </body>
+    <footer>
+        <div class="footer">
+            copyrights Fugukuru All RIghts Reserved.
+        </div>
+    </footer>
+</html>
+
+

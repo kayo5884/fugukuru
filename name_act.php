@@ -2,8 +2,8 @@
 
 function getUserData($params){
 
-	include_once('config/database.php');
-	$Mysqli = new mysqli($host, $username, $password, $dbname);
+	include_once('database.php');
+	$Mysqli = new mysqli($db_host, $db_id, $db_pw, $db_name);
 	if ($Mysqli->connect_error) {
 			error_log($Mysqli->connect_error);
 			exit;
@@ -11,6 +11,7 @@ function getUserData($params){
 
 	//入力された検索条件からSQl文を生成
 	$where = [];
+	$where[]="valid='1'";
     if(!empty($params['category'])){
 		$where[] = "category = '{$params['category']}'";
 	}
@@ -34,9 +35,9 @@ function getUserData($params){
 	}
 	if($where){
 		$whereSql = implode(' AND ', $where);
-		$sql = 'select * from welfare_table where ' . $whereSql ;
+		$sql = 'select * from welfare_table left join img_table on welfare_table.taiscode = img_table.taiscode where ' . $whereSql ;
 	}else{
-		$sql = 'select * from welfare_table';
+		$sql = 'select * from welfare_table left join img_table on welfare_table.taiscode = img_table.taiscod';
 	}
 	
 	//SQL文を実行する

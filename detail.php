@@ -1,9 +1,9 @@
 <?php
 session_start();
-$id = $_GET["id"]; //?id~**を受け取る
-
 require_once("funcs.php");
 loginCheck();
+
+$id = $_GET["id"]; //?id~**を受け取る
 $pdo = db_conn();
 
 //２．データ登録SQL作成
@@ -48,8 +48,8 @@ if($status==false) {
                <label>商品種別：<input type="text" name="category" value="<?=$row["category"]?>"></label><br>
                <label>商品名：<input type="text" name="name" value="<?=$row["name"]?>"></label><br>
                <label>商品型番：<input type="text" name="modelnumber" value="<?=$row["modelnumber"]?>"></label><br>
-               <label>NCSコード：<input type="text" name="ncscode" value="<?=$row["ncscode"]?>"></label><br>
-               <label>TAISコード：<input type="text" name="taiscode" value="<?=$row["taiscode"]?>"></label><br>
+               <label>NCSコード:<input type="text" name="ncscode" value="<?=$row["ncscode"]?>"></label><br>
+               <label>TAISコード:<input type="text" name="taiscode" value="<?=$row["taiscode"]?>"></label><br>
                <label>メーカー：<input type="text" name="manufacturer" value="<?=$row["manufacturer"]?>"></label><br>
                <label>希望小売価格：<input type="text" name="retailprice" value="<?=$row["retailprice"]?>"></label><br>
                <label>最頻価格：<input type="text" name="popularprice" value="<?=$row["popularprice"]?>"></label><br>
@@ -84,7 +84,7 @@ if($status==false) {
           <label>シートベルト：</label>
                <label><input type="radio" name="seatbelt" value="1"<?php if($row['seatbelt'] == 1){echo "checked";}?> required>対象</label>
                <label><input type="radio" name="seatbelt" value="0"<?php if($row['seatbelt'] == 0){echo "checked";}?> required>対象外</label><br>
-          <label>座幅変更:：</label>
+          <label>座幅変更：</label>
                <label><input type="radio" name="horizonable" value="1"<?php if($row['horizonable'] == 1){echo "checked";}?> required>対象</label>
                <label><input type="radio" name="horizonable" value="0"<?php if($row['horizonable'] == 0){echo "checked";}?> required>対象外</label><br>
           <label>座高変更：</label>
@@ -126,7 +126,7 @@ if($status==false) {
                <label><input type="radio" name="valid" value="1" <?php if($row['valid'] == 1){echo "checked";}?>>表示</label>
                <label><input type="radio" name="valid" value="0"<?php if($row['valid'] == 0){echo "checked";}?>>非表示</label><br>
                <input type="submit" value="送信" class=button>
-               <input type="hidden" name="id" value="<?=$result['id']?>">
+          <input type="hidden" name="id" value="<?=$id?>">
           </fieldset>
           </div>
           </form>

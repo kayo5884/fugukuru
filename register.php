@@ -29,8 +29,8 @@
         <label>商品種別：<input type="text" name="category"></label><br>
         <label>商品名：<input type="text" name="name"></label><br>
         <label>商品型番：<input type="text" name="modelnumber"></label><br>
-        <label>NCSコード：<input type="text" name="ncscode"></label><br>
-        <label>TAISコード：<input type="text" name="taiscode"></label><br>
+        <label>NCSコード:<input type="text" name="ncscode"></label><br>
+        <label>TAISコード:<input type="text" name="taiscode"></label><br>
         <label>メーカー：<input type="text" name="manufacturer"></label><br>
         <label>希望小売価格：<input type="text" name="retailprice"></label><br>
         <label>最頻価格：<input type="text" name="popularprice"></label><br>

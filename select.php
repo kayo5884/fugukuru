@@ -2,7 +2,7 @@
 session_start();
 
 require_once("funcs.php");
-// loginCheck();
+loginCheck();
 $pdo = db_conn();
 
 //２．SQL文を用意(データ取得：SELECT)
@@ -55,9 +55,15 @@ if($status==false) {
     <div>
       <header class="page-header">
       <h1><a href="index.php"><img class="logo wrapper" src="images/logo_reg.png" alt="ふぐくる"></a></h1>
-      <nav>
+      <nav class="nav">
           <ul class="main-nav">
             <a class="button  wrapper" href="register.php">商品新規登録</a>
+          </ul>
+          <ul class="main-nav">
+            <a class="button  wrapper" href="fileupload.html">画像登録</a>
+          </ul>
+          <ul class="main-nav">
+            <a class="button  wrapper" href="logout.php">ログアウト</a>
           </ul>
         </nav>
       </header>

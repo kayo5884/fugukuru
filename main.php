@@ -1,5 +1,13 @@
-<?php 
+<?php
+session_start();
+
 //①データ取得ロジックを呼び出す
+require_once('funcs.php');
+$pdo = db_conn();
+
+$stmt = $pdo->prepare("SELECT * FROM welfare_table, img_table WHERE welfare_table.taiscode = img_table.taiscode");
+$status = $stmt->execute();
+
 include_once('main_act.php');
 $userData = getUserData($_GET);
 ?>
@@ -44,30 +52,52 @@ $userData = getUserData($_GET);
                             <option value="5" <?php echo isset($_GET['seen']) && $_GET['seen'] == '5' ? 'selected' : '' ?>>（未設定）排泄するとき</option>
                         </select>
                     </div>
-                    <div class="form-group">
+                    <div class="form-check">
                         <label for="inputlevel">介護レベル</label>
-                        <label><input type="radio" name="level" class="form-control" id="inputlevel" value="1"<?php echo isset($_GET['level']) && $_GET['level'] == '1' ? 'checked' : '' ?>>1</label>
-                        <label><input type="radio" name="level" class="form-control" id="inputlevel" value="2"<?php echo isset($_GET['level']) && $_GET['level'] == '2' ? 'checked' : '' ?>>2</label>
-                        <label><input type="radio" name="level" class="form-control" id="inputlevel" value="3"<?php echo isset($_GET['level']) && $_GET['level'] == '3' ? 'checked' : '' ?>>3</label>
-                        <label><input type="radio" name="level" class="form-control" id="inputlevel" value="4"<?php echo isset($_GET['level']) && $_GET['level'] == '4' ? 'checked' : '' ?>>4</label>
-                        <label><input type="radio" name="level" class="form-control" id="inputlevel" value="5"<?php echo isset($_GET['level']) && $_GET['level'] == '5' ? 'checked' : '' ?>>5</label>
+                        <label class="form-check-label">
+                            <input type="radio" name="level" class="form-check-input" id="inputlevel" value="1"<?php echo isset($_GET['level']) && $_GET['level'] == '1' ? 'checked' : '' ?>>1
+                        </label>
+                        <label class="form-check-label">
+                            <input type="radio" name="level" class="form-check-input" id="inputlevel" value="2"<?php echo isset($_GET['level']) && $_GET['level'] == '2' ? 'checked' : '' ?>>2
+                        </label>
+                        <label class="form-check-label">
+                            <input type="radio" name="level" class="form-check-input" id="inputlevel" value="3"<?php echo isset($_GET['level']) && $_GET['level'] == '3' ? 'checked' : '' ?>>3
+                        </label>
+                        <label class="form-check-label">
+                            <input type="radio" name="level" class="form-check-input" id="inputlevel" value="4"<?php echo isset($_GET['level']) && $_GET['level'] == '4' ? 'checked' : '' ?>>4
+                        </label>
+                        <label class="form-check-label">
+                            <input type="radio" name="level" class="form-check-input" id="inputlevel" value="5"<?php echo isset($_GET['level']) && $_GET['level'] == '5' ? 'checked' : '' ?>>5
+                        </label>
                     </div>
-                    <div class="form-group">
+                    <div class="form-check">
                         <label for="inputshincho">身長</label>
-                        <label><input type="radio" name="shincho" class="form-control" id="inputshincho" value="1"<?php echo isset($_GET['shincho']) && $_GET['shincho'] == '1' ? 'checked' : '' ?>>150cm未満の方</label>
-                        <label><input type="radio" name="shincho" class="form-control" id="inputshincho" value="2"<?php echo isset($_GET['shincho']) && $_GET['shincho'] == '2' ? 'checked' : '' ?>>150cm〜170cm未満</label>
-                        <label><input type="radio" name="shincho" class="form-control" id="inputshincho" value="3"<?php echo isset($_GET['shincho']) && $_GET['shincho'] == '3' ? 'checked' : '' ?>>170cm以上の方</label>
+                        <label class="form-check-label">
+                            <input type="radio" name="shincho" class="form-check-input" id="inputshincho" value="1"<?php echo isset($_GET['shincho']) && $_GET['shincho'] == '1' ? 'checked' : '' ?>>150cm未満の方
+                        </label>
+                        <label class="form-check-label">
+                            <input type="radio" name="shincho" class="form-check-input" id="inputshincho" value="2"<?php echo isset($_GET['shincho']) && $_GET['shincho'] == '2' ? 'checked' : '' ?>>150cm〜170cm未満
+                        </label>
+                        <label class="form-check-label">
+                            <input type="radio" name="shincho" class="form-check-input" id="inputshincho" value="3"<?php echo isset($_GET['shincho']) && $_GET['shincho'] == '3' ? 'checked' : '' ?>>170cm以上の方
+                        </label>
                     </div>
-                    <div class="form-group">
+                    <div class="form-check">
                         <label for="inputtaijyu">体重</label>
-                        <label><input type="radio" name="taijyu" class="form-control" id="inputtaijyu" value="1"<?php echo isset($_GET['taijyu']) && $_GET['taijyu'] == '1' ? 'checked' : '' ?>>75kg未満の方</label>
-                        <label><input type="radio" name="taijyu" class="form-control" id="inputtaijyu" value="2"<?php echo isset($_GET['taijyu']) && $_GET['taijyu'] == '2' ? 'checked' : '' ?>>75kg〜100kg未満の方</label>
-                        <label><input type="radio" name="taijyu" class="form-control" id="inputtaijyu" value="3"<?php echo isset($_GET['taijyu']) && $_GET['taijyu'] == '3' ? 'checked' : '' ?>>100kg以上の方</label>
+                        <label class="form-check-label">
+                            <input type="radio" name="taijyu" class="form-check-input" id="inputtaijyu" value="1"<?php echo isset($_GET['taijyu']) && $_GET['taijyu'] == '1' ? 'checked' : '' ?>>75kg未満の方
+                        </label>
+                        <label class="form-check-label">
+                            <input type="radio" name="taijyu" class="form-check-input" id="inputtaijyu" value="2"<?php echo isset($_GET['taijyu']) && $_GET['taijyu'] == '2' ? 'checked' : '' ?>>75kg〜100kg未満の方
+                        </label>
+                        <label class="form-check-label">
+                            <input type="radio" name="taijyu" class="form-check-input" id="inputtaijyu" value="3"<?php echo isset($_GET['taijyu']) && $_GET['taijyu'] == '3' ? 'checked' : '' ?>>100kg以上の方
+                        </label>
                     </div>
-                    <div class="form-group">
+                    <div class="form-check">
                         <label for="inputsousa">主にどなたが操作しますか</label>
-                        <label><input type="radio" name="sousa" class="form-control" id="inputsousa" value="1"<?php echo isset($_GET['sousa']) && $_GET['sousa'] == '1' ? 'checked' : '' ?>>自分でこぐ</label>
-                        <label><input type="radio" name="sousa" class="form-control" id="inputsousa" value="2"<?php echo isset($_GET['sousa']) && $_GET['sousa'] == '2' ? 'checked' : '' ?>>介助者が後ろから押す</label>
+                        <label><input type="radio" name="sousa" class="form-check-input" id="inputsousa" value="1"<?php echo isset($_GET['sousa']) && $_GET['sousa'] == '1' ? 'checked' : '' ?>>自分でこぐ</label>
+                        <label><input type="radio" name="sousa" class="form-check-input" id="inputsousa" value="2"<?php echo isset($_GET['sousa']) && $_GET['sousa'] == '2' ? 'checked' : '' ?>>介助者が後ろから押す</label>
                     </div>
 
                     <details>
@@ -112,15 +142,15 @@ $userData = getUserData($_GET);
                     <table class="table">
                         <thead>
                             <tr>
+                                <th>画像</th>
                                 <th>名前</th>
-                                <th>商品型番</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php foreach($userData as $row): ?>
                                 <tr>
+                                    <td><p><img src="upload/<?php if(!empty($row['img'])){echo htmlspecialchars($row['img']);}else{echo "20220417095746d5475826ee8491563f6a973e129d092f.jpeg";}?>" alt="商品画像"></p></td>
                                     <td><a href="sub.php?id=<?php echo(int) $row['id']?>"><?php echo htmlspecialchars($row['name']) ?></td>
-                                    <td><?php echo htmlspecialchars($row['modelnumber']) ?></a></td>
                                 </tr>
                             <?php endforeach; ?>
                         </tbody>

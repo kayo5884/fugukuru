@@ -18,7 +18,7 @@
         </header>
         
         <div class=login index>
-            <h2>ログインフォーム</h2>
+            <h2>管理者ログインフォーム</h2>
             <!-- lLOGINogin_act.php は認証処理用のPHPです。 -->
             <form name="form1" action="login_act.php" method="post">
                 ID:<input type="text" name="lid"/>

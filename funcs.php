@@ -6,17 +6,17 @@ function h($str){
 
 //DB接続
 function db_conn(){
-    try {
-      $db_name = "kayo5884_fugukuru_db";    //データベース名
-      $db_id   = "kayo5884";          //アカウント名
-      $db_pw   = "********";      //パスワード：XAMPPはパスワード無しに修正してください。
-      $db_host = "mysql57.kayo5884.sakura.ne.jp"; //DBホスト
-      $pdo = new PDO('mysql:dbname=' . $db_name . ';charset=utf8;host=' . $db_host, $db_id, $db_pw);
-      return $pdo;//ここを追加！！
-    } catch (PDOException $e) {
-        exit('DB Connection Error:' . $e->getMessage());
-    }
+  try {
+    $db_name = "kayo5884_fugukuru_db";    //データベース名
+    $db_host = "mysql57.kayo5884.sakura.ne.jp"; //DBホスト
+    $db_id   = "kayo5884";          //アカウント名
+    $db_pw   = "*********";      //パスワード：XAMPPはパスワード無しに修正してください。
+    $pdo = new PDO('mysql:dbname=' . $db_name . ';charset=utf8;host=' . $db_host, $db_id, $db_pw);
+    return $pdo;//ここを追加！！
+  } catch (PDOException $e) {
+      exit('DB Connection Error:' . $e->getMessage());
   }
+}
 
 //SQLエラー
 function sql_error($stmt){
@@ -40,3 +40,5 @@ function loginCheck(){
     $_SESSION["chk_ssid"] = session_id();
   }
 }
+
+?>
