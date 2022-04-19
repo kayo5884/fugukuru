@@ -18,7 +18,7 @@ img{
 }
 input[type="text"],
 input[type="password"]
-testarea{
+textarea{
     background-color: rgba(255,255,255,.5);
     border: none;
     border-bottom: 1px solid #6a6253;
@@ -92,7 +92,39 @@ testarea{
     background-color: #fead20;
     color: #f1e9d3;
 }
-
+.radiobox{
+    display: flex;
+    justify-content: space-around;
+}
+.checkbox{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    height: 100px;
+}
+.radiobutton {
+    display: none;
+  }
+.label {
+    background-color: #dddddd;
+    color: #6a6253;
+    font-size: 100%;
+    padding: 15px 20px;
+    margin: 20px 5px;
+  }
+  .radiobutton:checked + label {
+    background-color: #fead20;
+  }
+.checkbutton{
+    display: none;
+}
+.checkbutton:checked + label {
+    background-color: #fead20;
+  }
+.shiyou{
+    padding: 15px 20px;
+    margin: 20px 5px;
+}
 /* ------login--------- */
 .login {
     padding: 30px;

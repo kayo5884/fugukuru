@@ -35,11 +35,11 @@ $seatable = $_POST['seatable'];
 $armsupportable = $_POST['armsupportable'];
 $handable = $_POST['handable'];
 $compact = $_POST['compact'];
-$foldable = $_POST['foldable'];
-$turnable = $_POST['turnable'];
-$wide = $_POST['wide'];
-$prevention = $_POST['prevention'];
-$colorful = $_POST['colorful'];
+// $foldable = $_POST['foldable'];
+// $turnable = $_POST['turnable'];
+// $wide = $_POST['wide'];
+// $prevention = $_POST['prevention'];
+// $colorful = $_POST['colorful'];
 $text = $_POST['text'];
 $valid = $_POST['valid'];
 $id       = $_POST['id'];
@@ -49,31 +49,26 @@ require_once('funcs.php');
 $pdo = db_conn();
 
 //３．データ登録SQL作成
-$stmt = $pdo->prepare("UPDATE welfare_table
-SET category=:category, name=:name, modelnumber=:modelnumber, ncscode=:ncscode, taiscode=:taiscode,
+$stmt = $pdo->prepare("UPDATE welfare_table SET category=:category, name=:name, modelnumber=:modelnumber, ncscode=:ncscode, taiscode=:taiscode,
 manufacturer=:manufacturer, retailprice=:retailprice, popularprice=:popularprice, averageprice=:averageprice, weight=:weight,
-maxweight=:maxweight, vertical=:vertical, horizontal=:horizontal, height=:height, maxhori=:maxhori,
-minhori=:minhori, maxhei=:maxhei, minhei=:minhei, tiltrange=:tiltrange, recliningrange=:recliningrange,
-type=:type, color=:color, level=:level, manufacturer=:manufacturer, retailprice=:retailprice, popularprice=:popularprice, averageprice=:averageprice, weight=:weight,
-maxweight=:maxweight, vertical=:vertical, horizontal=:horizontal, height=:height, maxhori=:maxhori,
+maxweight=:maxweight, horizontal=:horizontal, vertical=:vertical, height=:height, maxhori=:maxhori,
 minhori=:minhori, maxhei=:maxhei, minhei=:minhei, tiltrange=:tiltrange, recliningrange=:recliningrange,
 type=:type, color=:color, level=:level, notire=:notire, armsupport=:armsupport,
 footsupport=:footsupport, cushion=:cushion, seatbelt=:seatbelt, horizonable=:horizonable, heightable=:heightable,
 backable=:backable, seatable=:seatable, armsupportable=:armsupportable, handable=:handable, compact=:compact,
-foldable=:foldable, turnable=:tunable, wide=:wide, prevention=:prevention, colorful=:colorful,
 text=:text, valid=:valid WHERE id=:id");
 
 $stmt->bindValue(':category',   $category,   PDO::PARAM_STR);  //Integer（数値の場合 PDO::PARAM_INT)
-$stmt->bindValue(':name',       $name,       PDO::PARAM_STR);  //Integer（数値の場合 PDO::PARAM_INT)
-$stmt->bindValue(':modelnumber',$modelnumber,PDO::PARAM_STR);  //Integer（数値の場合 PDO::PARAM_INT)
-$stmt->bindValue(':ncscode',    $ncscode,    PDO::PARAM_STR);  //Integer（数値の場合 PDO::PARAM_INT)
-$stmt->bindValue(':taiscode',   $taiscode,   PDO::PARAM_STR);  //Integer（数値の場合 PDO::PARAM_INT)
+$stmt->bindValue(':name',  $name,  PDO::PARAM_STR);  //Integer（数値の場合 PDO::PARAM_INT)
+$stmt->bindValue(':modelnumber',  $modelnumber,  PDO::PARAM_STR);  //Integer（数値の場合 PDO::PARAM_INT)
+$stmt->bindValue(':ncscode', $ncscode, PDO::PARAM_STR);  //Integer（数値の場合 PDO::PARAM_INT)
+$stmt->bindValue(':taiscode', $taiscode, PDO::PARAM_STR);  //Integer（数値の場合 PDO::PARAM_INT)
 $stmt->bindValue(':manufacturer', $manufacturer, PDO::PARAM_STR);  //Integer（数値の場合 PDO::PARAM_INT)
 $stmt->bindValue(':retailprice', $retailprice, PDO::PARAM_INT);  //Integer（数値の場合 PDO::PARAM_INT)
 $stmt->bindValue(':popularprice', $popularprice, PDO::PARAM_INT);  //Integer（数値の場合 PDO::PARAM_INT)
 $stmt->bindValue(':averageprice', $averageprice, PDO::PARAM_INT);  //Integer（数値の場合 PDO::PARAM_INT)
 $stmt->bindValue(':weight', $weight, PDO::PARAM_INT);  //Integer（数値の場合 PDO::PARAM_INT)
-$stmt->bindValue(':maxweight', $maxweight, PDO::PARAM_STR);  //Integer（数値の場合 PDO::PARAM_INT)
+$stmt->bindValue(':maxweight', $maxweight, PDO::PARAM_INT);  //Integer（数値の場合 PDO::PARAM_INT)
 $stmt->bindValue(':vertical', $vertical, PDO::PARAM_INT);  //Integer（数値の場合 PDO::PARAM_INT)
 $stmt->bindValue(':horizontal', $horizontal, PDO::PARAM_INT);  //Integer（数値の場合 PDO::PARAM_INT)
 $stmt->bindValue(':height', $height, PDO::PARAM_INT);  //Integer（数値の場合 PDO::PARAM_INT)
@@ -98,20 +93,24 @@ $stmt->bindValue(':seatable', $seatable, PDO::PARAM_INT);  //Integer（数値の
 $stmt->bindValue(':armsupportable', $armsupportable, PDO::PARAM_INT);  //Integer（数値の場合 PDO::PARAM_INT)
 $stmt->bindValue(':handable', $handable, PDO::PARAM_INT);  //Integer（数値の場合 PDO::PARAM_INT)
 $stmt->bindValue(':compact', $compact, PDO::PARAM_INT);  //Integer（数値の場合 PDO::PARAM_INT)
-$stmt->bindValue(':foldable', $foldable, PDO::PARAM_INT);  //Integer（数値の場合 PDO::PARAM_INT)
-$stmt->bindValue(':turnable', $turnable, PDO::PARAM_INT);  //Integer（数値の場合 PDO::PARAM_INT)
-$stmt->bindValue(':wide', $wide, PDO::PARAM_INT);  //Integer（数値の場合 PDO::PARAM_INT)
-$stmt->bindValue(':prevention', $prevention, PDO::PARAM_INT);  //Integer（数値の場合 PDO::PARAM_INT)
-$stmt->bindValue(':colorful', $colorful, PDO::PARAM_INT);  //Integer（数値の場合 PDO::PARAM_INT)
+// $stmt->bindValue(':foldable', $foldable, PDO::PARAM_INT);  //Integer（数値の場合 PDO::PARAM_INT)
+// $stmt->bindValue(':turnable', $turnable, PDO::PARAM_INT);  //Integer（数値の場合 PDO::PARAM_INT)
+// $stmt->bindValue(':wide', $wide, PDO::PARAM_INT);  //Integer（数値の場合 PDO::PARAM_INT)
+// $stmt->bindValue(':prevention', $prevention, PDO::PARAM_INT);  //Integer（数値の場合 PDO::PARAM_INT)
+// $stmt->bindValue(':colorful', $colorful, PDO::PARAM_INT);  //Integer（数値の場合 PDO::PARAM_INT)
 $stmt->bindValue(':text', $text, PDO::PARAM_STR);  //Integer（数値の場合 PDO::PARAM_INT)
 $stmt->bindValue(':valid', $valid, PDO::PARAM_INT);  //Integer（数値の場合 PDO::PARAM_INT)
 $stmt->bindValue(':id', $id, PDO::PARAM_INT);  //Integer（数値の場合 PDO::PARAM_INT)
+
 $status = $stmt->execute(); //実行
 
 //４．データ登録処理後
 if($status==false){
-  sql_error($stmt);
+  //SQL実行時にエラーがある場合（エラーオブジェクト取得して表示）
+  $error = $stmt->errorInfo();
+  exit("ErrorMassage:".$error[2]);
 }else{
-  redirect("select.php");
+  //５．select.phpへリダイレクト
+  header('Location: select.php');
 }
 ?>

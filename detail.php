@@ -123,8 +123,8 @@ if($status==false) {
           <label>メモ：</label><br>
                <label><textArea name="text" rows="4" cols="40"><?= $row["text"]?></textArea></label><br>
           <label>表示・非表示：</label>
-               <label><input type="radio" name="valid" value="1" <?php if($row['valid'] == 1){echo "checked";}?>>表示</label>
-               <label><input type="radio" name="valid" value="0"<?php if($row['valid'] == 0){echo "checked";}?>>非表示</label><br>
+               <label><input type="radio" name="valid" value="1"<?php if($row['valid'] == 1){echo "checked";}?> required>表示</label>
+               <label><input type="radio" name="valid" value="0"<?php if($row['valid'] == 0){echo "checked";}?> required>非表示</label><br>
                <input type="submit" value="送信" class=button>
           <input type="hidden" name="id" value="<?=$id?>">
           </fieldset>

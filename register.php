@@ -100,7 +100,7 @@
           <label>選べるシート色:</label>
           <label><input type="radio" name="colorful" value="1">対象</label>
           <label><input type="radio" name="colorful" value="0">対象外</label><br>
-          <label>メモ：</label>
+          <label>メモ：</label><br>
             <textArea name="text" rows="4" cols="40" placeholder="コメントを記入してください"></textArea></label><br>
           <label>表示・非表示:</label>
           <label><input type="radio" name="valid" value="1">表示</label>
